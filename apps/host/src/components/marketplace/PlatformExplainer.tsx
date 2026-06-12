@@ -1,6 +1,6 @@
 import { Badge, Group, Paper, SimpleGrid, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import {
-  IconBrandVsCode,
+  IconBrandVscode,
   IconDownload,
   IconPlug,
   IconShieldCheck,
@@ -9,7 +9,7 @@ import {
 
 const STEPS = [
   {
-    icon: IconBrandVsCode,
+    icon: IconBrandVscode,
     title: 'Stable host shell',
     body: 'Like VS Code itself — the core app never changes. It only provides slots: sidebar, header, routes, and dashboard areas.',
   },
@@ -36,7 +36,7 @@ export function PlatformExplainer() {
       <Stack gap="lg">
         <Group gap="md" align="flex-start" wrap="wrap">
           <ThemeIcon size={48} radius="md" variant="light" color="indigo">
-            <IconBrandVsCode size={26} />
+            <IconBrandVscode size={26} />
           </ThemeIcon>
           <Stack gap={6} style={{ flex: 1, minWidth: 240 }}>
             <Group gap="xs">
