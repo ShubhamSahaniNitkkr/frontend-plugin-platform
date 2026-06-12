@@ -2,6 +2,9 @@
 
 > Runtime-composable frontend platform with dynamic plugin loading, inspired by VS Code Extensions, Chrome Extensions, and Grafana Plugins.
 
+<img width="2240" height="1168" alt="image" src="https://github.com/user-attachments/assets/aeee8c7e-62e9-418a-902c-f8c87b97acc9" />
+
+
 ## Quick Start
 
 **Prerequisites:** Node.js 20+, npm 10+
