@@ -79,7 +79,9 @@ export function LoginForm() {
 
         {error && (
           <Alert color="red" title="Login failed">
-            Invalid email or password
+            {error.status === 'FETCH_ERROR' || error.status === 502 || error.status === 503
+              ? 'Cannot reach the API. On Render free tier, open the API health URL first to wake it, then try again.'
+              : 'Invalid email or password'}
           </Alert>
         )}
 

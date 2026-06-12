@@ -6,7 +6,7 @@ services:
     name: fpp-api
     runtime: node
     plan: free
-    buildCommand: npm ci && npm run build -w @fpp/shared && npm run build -w @fpp/api
+    buildCommand: npm ci && npm rebuild better-sqlite3 && npm run build -w @fpp/shared && npm run build -w @fpp/api
     startCommand: npm run start -w @fpp/api
     healthCheckPath: /api/v1/health
     envVars:
@@ -14,6 +14,8 @@ services:
         value: "20"
       - key: JWT_SECRET
         generateValue: true
+      - key: DATABASE_PATH
+        value: /tmp/fpp.db
 
   - type: web
     name: fpp-host
