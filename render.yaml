@@ -30,4 +30,4 @@ services:
     routes:
       - type: rewrite
         source: /api/*
-        destination: https://fpp-api.onrender.com/api/*
+        destination: https://fpp-api-6gua.onrender.com/api/*

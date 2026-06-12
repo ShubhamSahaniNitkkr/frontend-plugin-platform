@@ -1,2 +1,2 @@
 # Proxy API through the static site (same-origin, no CORS)
-/api/*  https://fpp-api.onrender.com/api/:splat  200
+/api/*  https://fpp-api-6gua.onrender.com/api/:splat  200
