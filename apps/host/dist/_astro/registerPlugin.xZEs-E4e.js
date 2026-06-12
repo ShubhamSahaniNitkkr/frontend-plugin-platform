@@ -1,1 +1,0 @@
-import{a6 as e,a7 as t,a8 as a}from"./Root.DXnmtUwH.js";function g(r){const s=e.safeParse(r.manifest);if(!s.success)throw new Error(`[PluginSDK] Invalid manifest: ${s.error.message}`);t(r.manifest.id);try{a().registerContributions(r)}finally{}}export{g as r};

@@ -8,5 +8,7 @@ export declare function setHostBridge(bridge: PluginHostBridge): void;
 export declare function getHostBridge(): PluginHostBridge;
 export declare function setCurrentPluginId(pluginId: string): void;
 export declare function getCurrentPluginId(): string;
+export declare function resolvePluginId(pluginId?: string): string;
+export declare function getPluginContext(pluginId: string): import("./types.js").PluginContext;
 export declare function clearCurrentPluginId(): void;
 //# sourceMappingURL=context.d.ts.map

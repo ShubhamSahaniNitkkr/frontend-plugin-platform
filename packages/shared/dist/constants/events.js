@@ -35,6 +35,13 @@ export const pluginLifecycleSchema = z.object({
     pluginId: z.string(),
     version: z.string().optional(),
 });
+export const localeChangedSchema = z.object({
+    locale: z.string(),
+});
+export const themePresetSchema = z.object({
+    primaryColor: z.string(),
+    label: z.string().optional(),
+});
 export const EVENT_SCHEMAS = {
     'task.created': taskCreatedSchema,
     'task.updated': taskUpdatedSchema,
@@ -45,5 +52,7 @@ export const EVENT_SCHEMAS = {
     'plugin.error': pluginErrorSchema,
     'plugin.enabled': pluginLifecycleSchema,
     'plugin.disabled': pluginLifecycleSchema,
+    'locale.changed': localeChangedSchema,
+    'theme.preset': themePresetSchema,
 };
 //# sourceMappingURL=events.js.map

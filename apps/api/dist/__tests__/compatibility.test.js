@@ -6,11 +6,11 @@ beforeAll(() => {
 });
 describe('checkCompatibility', () => {
     it('returns compatible for valid version', () => {
-        const result = checkCompatibility('com.fpp.analytics', '1.0.0');
+        const result = checkCompatibility('com.fpp.i18n', '1.0.0');
         expect(result.compatible).toBe(true);
     });
     it('returns incompatible for unknown version', () => {
-        const result = checkCompatibility('com.fpp.analytics', '99.0.0');
+        const result = checkCompatibility('com.fpp.i18n', '99.0.0');
         expect(result.compatible).toBe(false);
     });
 });

@@ -1,3 +1,3 @@
-export declare function getConfiguration<T = Record<string, unknown>>(): T;
-export declare function setConfiguration(partial: Record<string, unknown>): Promise<void>;
+export declare function getConfiguration<T = Record<string, unknown>>(pluginId?: string): T;
+export declare function setConfiguration(partial: Record<string, unknown>, pluginId?: string): Promise<void>;
 //# sourceMappingURL=configuration.d.ts.map

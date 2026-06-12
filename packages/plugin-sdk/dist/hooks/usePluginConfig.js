@@ -1,18 +1,21 @@
 import { useCallback, useEffect, useState } from 'react';
-import { getConfiguration, setConfiguration } from '../configuration.js';
+import { getPluginContext } from '../context.js';
+import { usePluginId } from '../PluginIdContext.js';
 export function usePluginConfig(defaults) {
+    const pluginId = usePluginId();
+    const ctx = getPluginContext(pluginId);
     const [config, setConfig] = useState(() => ({
         ...defaults,
-        ...getConfiguration(),
+        ...ctx.config.get(),
     }));
     useEffect(() => {
-        setConfig({ ...defaults, ...getConfiguration() });
-    }, []);
+        setConfig({ ...defaults, ...ctx.config.get() });
+    }, [pluginId]);
     const update = useCallback(async (partial) => {
         const next = { ...config, ...partial };
         setConfig(next);
-        await setConfiguration(partial);
-    }, [config]);
+        await ctx.config.set(partial);
+    }, [config, ctx]);
     return [config, update];
 }
 //# sourceMappingURL=usePluginConfig.js.map

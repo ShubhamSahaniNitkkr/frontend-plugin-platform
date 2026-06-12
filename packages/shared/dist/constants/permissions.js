@@ -11,6 +11,8 @@ export const PERMISSIONS = [
     'events:task.*',
     'events:report.*',
     'events:user.*',
+    'events:locale.*',
+    'events:theme.*',
     'storage:local',
 ];
 export function matchesPermission(granted, required) {

@@ -1,14 +1,10 @@
-import { getCurrentPluginId, getHostBridge } from './context.js';
-export function getPermissions() {
-    const pluginId = getCurrentPluginId();
-    const bridge = getHostBridge();
-    const ctx = bridge.getContext({ id: pluginId });
-    return ctx.permissions.getAll();
+import { resolvePluginId, getPluginContext } from './context.js';
+export function getPermissions(pluginId) {
+    const id = resolvePluginId(pluginId);
+    return getPluginContext(id).permissions.getAll();
 }
-export function hasPermission(permission) {
-    const pluginId = getCurrentPluginId();
-    const bridge = getHostBridge();
-    const ctx = bridge.getContext({ id: pluginId });
-    return ctx.permissions.has(permission);
+export function hasPermission(permission, pluginId) {
+    const id = resolvePluginId(pluginId);
+    return getPluginContext(id).permissions.has(permission);
 }
 //# sourceMappingURL=permissions.js.map

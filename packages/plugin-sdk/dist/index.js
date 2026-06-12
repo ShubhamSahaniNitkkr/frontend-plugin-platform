@@ -6,6 +6,11 @@ export { emitEvent, subscribeEvent } from './events.js';
 export { getPermissions, hasPermission } from './permissions.js';
 export { getConfiguration, setConfiguration } from './configuration.js';
 export { setHostBridge, getHostBridge } from './context.js';
+export { PluginIdProvider } from './PluginIdContext.js';
+export { usePluginId } from './PluginIdContext.js';
 export { usePluginConfig } from './hooks/usePluginConfig.js';
 export { usePluginEvent } from './hooks/usePluginEvent.js';
+export { usePluginPermissions } from './hooks/usePluginPermissions.js';
+export { useEmitEvent } from './hooks/useEmitEvent.js';
+export { usePluginNotify } from './hooks/usePluginNotify.js';
 //# sourceMappingURL=index.js.map

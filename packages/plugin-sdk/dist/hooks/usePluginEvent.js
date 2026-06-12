@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
-import { subscribeEvent } from '../events.js';
+import { getPluginContext } from '../context.js';
+import { usePluginId } from '../PluginIdContext.js';
 export function usePluginEvent(event, handler) {
+    const pluginId = usePluginId();
     useEffect(() => {
-        const unsubscribe = subscribeEvent(event, handler);
-        return unsubscribe;
-    }, [event, handler]);
+        const ctx = getPluginContext(pluginId);
+        return ctx.events.subscribe(event, handler);
+    }, [pluginId, event, handler]);
 }
 //# sourceMappingURL=usePluginEvent.js.map

@@ -16,6 +16,8 @@ const Ji = [
   "events:task.*",
   "events:report.*",
   "events:user.*",
+  "events:locale.*",
+  "events:theme.*",
   "storage:local"
 ], Qi = [
   "dashboard.main",
@@ -506,7 +508,7 @@ class Y {
   _refinement(e) {
     return new Pt({
       schema: this,
-      typeName: L.ZodEffects,
+      typeName: M.ZodEffects,
       effect: { type: "refinement", refinement: e }
     });
   }
@@ -545,7 +547,7 @@ class Y {
     return new Pt({
       ...H(this._def),
       schema: this,
-      typeName: L.ZodEffects,
+      typeName: M.ZodEffects,
       effect: { type: "transform", transform: e }
     });
   }
@@ -555,12 +557,12 @@ class Y {
       ...H(this._def),
       innerType: this,
       defaultValue: n,
-      typeName: L.ZodDefault
+      typeName: M.ZodDefault
     });
   }
   brand() {
     return new ka({
-      typeName: L.ZodBranded,
+      typeName: M.ZodBranded,
       type: this,
       ...H(this._def)
     });
@@ -571,7 +573,7 @@ class Y {
       ...H(this._def),
       innerType: this,
       catchValue: n,
-      typeName: L.ZodCatch
+      typeName: M.ZodCatch
     });
   }
   describe(e) {
@@ -1009,7 +1011,7 @@ class Ke extends Y {
 }
 Ke.create = (t) => new Ke({
   checks: [],
-  typeName: L.ZodString,
+  typeName: M.ZodString,
   coerce: (t == null ? void 0 : t.coerce) ?? !1,
   ...H(t)
 });
@@ -1185,7 +1187,7 @@ class Nt extends Y {
 }
 Nt.create = (t) => new Nt({
   checks: [],
-  typeName: L.ZodNumber,
+  typeName: M.ZodNumber,
   coerce: (t == null ? void 0 : t.coerce) || !1,
   ...H(t)
 });
@@ -1318,7 +1320,7 @@ class Kt extends Y {
 }
 Kt.create = (t) => new Kt({
   checks: [],
-  typeName: L.ZodBigInt,
+  typeName: M.ZodBigInt,
   coerce: (t == null ? void 0 : t.coerce) ?? !1,
   ...H(t)
 });
@@ -1336,7 +1338,7 @@ class Po extends Y {
   }
 }
 Po.create = (t) => new Po({
-  typeName: L.ZodBoolean,
+  typeName: M.ZodBoolean,
   coerce: (t == null ? void 0 : t.coerce) || !1,
   ...H(t)
 });
@@ -1415,7 +1417,7 @@ class wn extends Y {
 wn.create = (t) => new wn({
   checks: [],
   coerce: (t == null ? void 0 : t.coerce) || !1,
-  typeName: L.ZodDate,
+  typeName: M.ZodDate,
   ...H(t)
 });
 class Oo extends Y {
@@ -1432,7 +1434,7 @@ class Oo extends Y {
   }
 }
 Oo.create = (t) => new Oo({
-  typeName: L.ZodSymbol,
+  typeName: M.ZodSymbol,
   ...H(t)
 });
 class $o extends Y {
@@ -1449,7 +1451,7 @@ class $o extends Y {
   }
 }
 $o.create = (t) => new $o({
-  typeName: L.ZodUndefined,
+  typeName: M.ZodUndefined,
   ...H(t)
 });
 class Eo extends Y {
@@ -1466,7 +1468,7 @@ class Eo extends Y {
   }
 }
 Eo.create = (t) => new Eo({
-  typeName: L.ZodNull,
+  typeName: M.ZodNull,
   ...H(t)
 });
 class Io extends Y {
@@ -1478,7 +1480,7 @@ class Io extends Y {
   }
 }
 Io.create = (t) => new Io({
-  typeName: L.ZodAny,
+  typeName: M.ZodAny,
   ...H(t)
 });
 class dr extends Y {
@@ -1490,7 +1492,7 @@ class dr extends Y {
   }
 }
 dr.create = (t) => new dr({
-  typeName: L.ZodUnknown,
+  typeName: M.ZodUnknown,
   ...H(t)
 });
 class at extends Y {
@@ -1504,7 +1506,7 @@ class at extends Y {
   }
 }
 at.create = (t) => new at({
-  typeName: L.ZodNever,
+  typeName: M.ZodNever,
   ...H(t)
 });
 class Do extends Y {
@@ -1521,7 +1523,7 @@ class Do extends Y {
   }
 }
 Do.create = (t) => new Do({
-  typeName: L.ZodVoid,
+  typeName: M.ZodVoid,
   ...H(t)
 });
 class Ve extends Y {
@@ -1594,7 +1596,7 @@ Ve.create = (t, e) => new Ve({
   minLength: null,
   maxLength: null,
   exactLength: null,
-  typeName: L.ZodArray,
+  typeName: M.ZodArray,
   ...H(e)
 });
 function kt(t) {
@@ -1757,7 +1759,7 @@ class le extends Y {
         ...this._def.shape(),
         ...e._def.shape()
       }),
-      typeName: L.ZodObject
+      typeName: M.ZodObject
     });
   }
   // merge<
@@ -1884,21 +1886,21 @@ le.create = (t, e) => new le({
   shape: () => t,
   unknownKeys: "strip",
   catchall: at.create(),
-  typeName: L.ZodObject,
+  typeName: M.ZodObject,
   ...H(e)
 });
 le.strictCreate = (t, e) => new le({
   shape: () => t,
   unknownKeys: "strict",
   catchall: at.create(),
-  typeName: L.ZodObject,
+  typeName: M.ZodObject,
   ...H(e)
 });
 le.lazycreate = (t, e) => new le({
   shape: t,
   unknownKeys: "strip",
   catchall: at.create(),
-  typeName: L.ZodObject,
+  typeName: M.ZodObject,
   ...H(e)
 });
 class xn extends Y {
@@ -1971,7 +1973,7 @@ class xn extends Y {
 }
 xn.create = (t, e) => new xn({
   options: t,
-  typeName: L.ZodUnion,
+  typeName: M.ZodUnion,
   ...H(e)
 });
 function ur(t, e) {
@@ -2035,7 +2037,7 @@ class _n extends Y {
 _n.create = (t, e, n) => new _n({
   left: t,
   right: e,
-  typeName: L.ZodIntersection,
+  typeName: M.ZodIntersection,
   ...H(n)
 });
 class vt extends Y {
@@ -2083,7 +2085,7 @@ vt.create = (t, e) => {
     throw new Error("You must pass an array of schemas to z.tuple([ ... ])");
   return new vt({
     items: t,
-    typeName: L.ZodTuple,
+    typeName: M.ZodTuple,
     rest: null,
     ...H(e)
   });
@@ -2119,12 +2121,12 @@ class Sn extends Y {
     return n instanceof Y ? new Sn({
       keyType: e,
       valueType: n,
-      typeName: L.ZodRecord,
+      typeName: M.ZodRecord,
       ...H(r)
     }) : new Sn({
       keyType: Ke.create(),
       valueType: e,
-      typeName: L.ZodRecord,
+      typeName: M.ZodRecord,
       ...H(n)
     });
   }
@@ -2174,7 +2176,7 @@ class Lo extends Y {
 Lo.create = (t, e, n) => new Lo({
   valueType: e,
   keyType: t,
-  typeName: L.ZodMap,
+  typeName: M.ZodMap,
   ...H(n)
 });
 class Jt extends Y {
@@ -2238,7 +2240,7 @@ Jt.create = (t, e) => new Jt({
   valueType: t,
   minSize: null,
   maxSize: null,
-  typeName: L.ZodSet,
+  typeName: M.ZodSet,
   ...H(e)
 });
 class Mo extends Y {
@@ -2252,7 +2254,7 @@ class Mo extends Y {
 }
 Mo.create = (t, e) => new Mo({
   getter: t,
-  typeName: L.ZodLazy,
+  typeName: M.ZodLazy,
   ...H(e)
 });
 class zo extends Y {
@@ -2273,13 +2275,13 @@ class zo extends Y {
 }
 zo.create = (t, e) => new zo({
   value: t,
-  typeName: L.ZodLiteral,
+  typeName: M.ZodLiteral,
   ...H(e)
 });
 function bs(t, e) {
   return new At({
     values: t,
-    typeName: L.ZodEnum,
+    typeName: M.ZodEnum,
     ...H(e)
   });
 }
@@ -2365,7 +2367,7 @@ class Bo extends Y {
 }
 Bo.create = (t, e) => new Bo({
   values: t,
-  typeName: L.ZodNativeEnum,
+  typeName: M.ZodNativeEnum,
   ...H(e)
 });
 class Cn extends Y {
@@ -2389,7 +2391,7 @@ class Cn extends Y {
 }
 Cn.create = (t, e) => new Cn({
   type: t,
-  typeName: L.ZodPromise,
+  typeName: M.ZodPromise,
   ...H(e)
 });
 class Pt extends Y {
@@ -2397,7 +2399,7 @@ class Pt extends Y {
     return this._def.schema;
   }
   sourceType() {
-    return this._def.schema._def.typeName === L.ZodEffects ? this._def.schema.sourceType() : this._def.schema;
+    return this._def.schema._def.typeName === M.ZodEffects ? this._def.schema.sourceType() : this._def.schema;
   }
   _parse(e) {
     const { status: n, ctx: r } = this._processInputParams(e), o = this._def.effect || null, s = {
@@ -2474,14 +2476,14 @@ class Pt extends Y {
 }
 Pt.create = (t, e, n) => new Pt({
   schema: t,
-  typeName: L.ZodEffects,
+  typeName: M.ZodEffects,
   effect: e,
   ...H(n)
 });
 Pt.createWithPreprocess = (t, e, n) => new Pt({
   schema: e,
   effect: { type: "preprocess", transform: t },
-  typeName: L.ZodEffects,
+  typeName: M.ZodEffects,
   ...H(n)
 });
 class ot extends Y {
@@ -2494,7 +2496,7 @@ class ot extends Y {
 }
 ot.create = (t, e) => new ot({
   innerType: t,
-  typeName: L.ZodOptional,
+  typeName: M.ZodOptional,
   ...H(e)
 });
 class Ot extends Y {
@@ -2507,7 +2509,7 @@ class Ot extends Y {
 }
 Ot.create = (t, e) => new Ot({
   innerType: t,
-  typeName: L.ZodNullable,
+  typeName: M.ZodNullable,
   ...H(e)
 });
 class fr extends Y {
@@ -2526,7 +2528,7 @@ class fr extends Y {
 }
 fr.create = (t, e) => new fr({
   innerType: t,
-  typeName: L.ZodDefault,
+  typeName: M.ZodDefault,
   defaultValue: typeof e.default == "function" ? e.default : () => e.default,
   ...H(e)
 });
@@ -2569,7 +2571,7 @@ class pr extends Y {
 }
 pr.create = (t, e) => new pr({
   innerType: t,
-  typeName: L.ZodCatch,
+  typeName: M.ZodCatch,
   catchValue: typeof e.catch == "function" ? e.catch : () => e.catch,
   ...H(e)
 });
@@ -2587,7 +2589,7 @@ class jo extends Y {
   }
 }
 jo.create = (t) => new jo({
-  typeName: L.ZodNaN,
+  typeName: M.ZodNaN,
   ...H(t)
 });
 class ka extends Y {
@@ -2639,7 +2641,7 @@ class Nr extends Y {
     return new Nr({
       in: e,
       out: n,
-      typeName: L.ZodPipeline
+      typeName: M.ZodPipeline
     });
   }
 }
@@ -2654,16 +2656,16 @@ class mr extends Y {
 }
 mr.create = (t, e) => new mr({
   innerType: t,
-  typeName: L.ZodReadonly,
+  typeName: M.ZodReadonly,
   ...H(e)
 });
-var L;
+var M;
 (function(t) {
   t.ZodString = "ZodString", t.ZodNumber = "ZodNumber", t.ZodNaN = "ZodNaN", t.ZodBigInt = "ZodBigInt", t.ZodBoolean = "ZodBoolean", t.ZodDate = "ZodDate", t.ZodSymbol = "ZodSymbol", t.ZodUndefined = "ZodUndefined", t.ZodNull = "ZodNull", t.ZodAny = "ZodAny", t.ZodUnknown = "ZodUnknown", t.ZodNever = "ZodNever", t.ZodVoid = "ZodVoid", t.ZodArray = "ZodArray", t.ZodObject = "ZodObject", t.ZodUnion = "ZodUnion", t.ZodDiscriminatedUnion = "ZodDiscriminatedUnion", t.ZodIntersection = "ZodIntersection", t.ZodTuple = "ZodTuple", t.ZodRecord = "ZodRecord", t.ZodMap = "ZodMap", t.ZodSet = "ZodSet", t.ZodFunction = "ZodFunction", t.ZodLazy = "ZodLazy", t.ZodLiteral = "ZodLiteral", t.ZodEnum = "ZodEnum", t.ZodEffects = "ZodEffects", t.ZodNativeEnum = "ZodNativeEnum", t.ZodOptional = "ZodOptional", t.ZodNullable = "ZodNullable", t.ZodDefault = "ZodDefault", t.ZodCatch = "ZodCatch", t.ZodPromise = "ZodPromise", t.ZodBranded = "ZodBranded", t.ZodPipeline = "ZodPipeline", t.ZodReadonly = "ZodReadonly";
-})(L || (L = {}));
-const z = Ke.create, ws = Nt.create, Ar = dr.create;
+})(M || (M = {}));
+const L = Ke.create, ws = Nt.create, Ar = dr.create;
 at.create;
-const Ta = Ve.create, ue = le.create;
+const Ta = Ve.create, de = le.create;
 xn.create;
 _n.create;
 vt.create;
@@ -2671,99 +2673,106 @@ const On = Sn.create, bt = At.create;
 Cn.create;
 ot.create;
 Ot.create;
-ue({
-  taskId: z(),
-  title: z(),
-  userId: z()
+de({
+  taskId: L(),
+  title: L(),
+  userId: L()
 });
-ue({
-  taskId: z(),
+de({
+  taskId: L(),
   changes: On(Ar())
 });
-ue({
-  taskId: z()
+de({
+  taskId: L()
 });
-ue({
-  reportId: z(),
-  type: z(),
-  title: z().optional()
+de({
+  reportId: L(),
+  type: L(),
+  title: L().optional()
 });
-ue({
-  userId: z(),
-  email: z(),
-  timestamp: z()
+de({
+  userId: L(),
+  email: L(),
+  timestamp: L()
 });
-ue({
-  message: z(),
+de({
+  message: L(),
   variant: bt(["info", "success", "error", "warning"]).default("info"),
-  title: z().optional()
+  title: L().optional()
 });
-ue({
-  pluginId: z(),
-  error: z(),
-  stack: z().optional()
+de({
+  pluginId: L(),
+  error: L(),
+  stack: L().optional()
 });
-ue({
-  pluginId: z(),
-  version: z().optional()
+de({
+  pluginId: L(),
+  version: L().optional()
 });
-const Ra = ue({
-  id: z().min(1),
-  name: z().min(1),
-  version: z().regex(/^\d+\.\d+\.\d+$/),
-  description: z(),
-  author: z(),
-  entry: z(),
-  hostCompatibility: z().default("^1.0.0"),
+de({
+  locale: L()
+});
+de({
+  primaryColor: L(),
+  label: L().optional()
+});
+const Ra = de({
+  id: L().min(1),
+  name: L().min(1),
+  version: L().regex(/^\d+\.\d+\.\d+$/),
+  description: L(),
+  author: L(),
+  entry: L(),
+  hostCompatibility: L().default("^1.0.0"),
   permissions: Ta(bt(Ji)).default([]),
-  dependencies: On(z()).optional(),
-  icon: z().optional(),
-  category: z().optional()
+  dependencies: On(L()).optional(),
+  icon: L().optional(),
+  category: L().optional()
 });
-ue({
-  path: z(),
-  label: z().optional(),
-  permission: z().optional()
+de({
+  path: L(),
+  label: L().optional(),
+  permission: L().optional()
 });
-ue({
+de({
   slot: bt(Qi),
   priority: ws().default(0)
 });
-ue({
-  label: z(),
-  path: z(),
-  icon: z().optional(),
-  section: z().optional(),
+de({
+  label: L(),
+  path: L(),
+  icon: L().optional(),
+  section: L().optional(),
   order: ws().default(0)
 });
-ue({
-  email: z().email(),
-  password: z().min(6)
+de({
+  email: L().email(),
+  password: L().min(6)
 });
-ue({
-  version: z().optional()
+de({
+  version: L().optional()
 });
-ue({
-  version: z()
+de({
+  version: L()
 });
 On(Ar());
-const Na = ue({
-  title: z().min(1),
-  description: z().optional(),
+const Na = de({
+  title: L().min(1),
+  description: L().optional(),
   status: bt(["todo", "in_progress", "done"]).default("todo"),
   priority: bt(["low", "medium", "high"]).default("medium")
 });
 Na.partial();
-ue({
+de({
   type: bt(["tasks", "activity", "usage"]),
   format: bt(["json", "csv"]).default("json"),
-  title: z().optional()
+  title: L().optional()
 });
-ue({
-  pluginId: z(),
-  event: z(),
+de({
+  pluginId: L(),
+  event: L(),
   payload: On(Ar()).optional(),
-  timestamp: z().optional()
+  timestamp: L().optional()
 });
 function xs() {
   const t = typeof window < "u" ? window.__FPP_HOST_BRIDGE__ : null;
@@ -3750,7 +3759,7 @@ function Dr(t) {
     tt: V,
     td: X,
     w: N,
-    miw: M,
+    miw: z,
     maw: P,
     h: F,
     mih: re,
@@ -3807,7 +3816,7 @@ function Dr(t) {
     tt: V,
     td: X,
     w: N,
-    miw: M,
+    miw: z,
     maw: P,
     h: F,
     mih: re,
@@ -4528,14 +4537,14 @@ const Rl = 50, Nl = async (t, e, n) => {
     }, p = Vr(o), m = Fr(p), g = await i.getDimensions(l), y = p === "y", w = y ? "top" : "left", x = y ? "bottom" : "right", v = y ? "clientHeight" : "clientWidth", b = s.reference[m] + s.reference[p] - f[p] - s.floating[m], C = f[p] - s.reference[p], S = await (i.getOffsetParent == null ? void 0 : i.getOffsetParent(l));
     let T = S ? S[v] : 0;
     (!T || !await (i.isElement == null ? void 0 : i.isElement(S))) && (T = a.floating[v] || s.floating[m]);
-    const k = b / 2 - C / 2, D = T / 2 - g[m] / 2 - 1, $ = ze(u[w], D), U = ze(u[x], D), I = $, j = T - g[m] - U, V = T / 2 - g[m] / 2 + k, X = wr(I, V, j), N = !c.arrow && Vt(o) != null && V !== X && s.reference[m] / 2 - (V < I ? $ : U) - g[m] / 2 < 0, M = N ? V < I ? V - I : V - j : 0;
+    const k = b / 2 - C / 2, D = T / 2 - g[m] / 2 - 1, $ = ze(u[w], D), U = ze(u[x], D), I = $, j = T - g[m] - U, V = T / 2 - g[m] / 2 + k, X = wr(I, V, j), N = !c.arrow && Vt(o) != null && V !== X && s.reference[m] / 2 - (V < I ? $ : U) - g[m] / 2 < 0, z = N ? V < I ? V - I : V - j : 0;
     return {
-      [p]: f[p] + M,
+      [p]: f[p] + z,
       data: {
         [p]: X,
-        centerOffset: V - X - M,
+        centerOffset: V - X - z,
         ...N && {
-          alignmentOffset: M
+          alignmentOffset: z
         }
       },
       reset: N
@@ -4591,12 +4600,12 @@ const Rl = 50, Nl = async (t, e, n) => {
               placement: X
             }
           };
-        let N = (I = $.filter((M) => M.overflows[0] <= 0).sort((M, P) => M.overflows[1] - P.overflows[1])[0]) == null ? void 0 : I.placement;
+        let N = (I = $.filter((z) => z.overflows[0] <= 0).sort((z, P) => z.overflows[1] - P.overflows[1])[0]) == null ? void 0 : I.placement;
         if (!N)
           switch (p) {
             case "bestFit": {
               var j;
-              const M = (j = $.filter((P) => {
+              const z = (j = $.filter((P) => {
                 if (S) {
                   const F = De(P.placement);
                   return F === x || // Create a bias to the `y` side axis due to horizontal
@@ -4605,7 +4614,7 @@ const Rl = 50, Nl = async (t, e, n) => {
                 }
                 return !0;
               }).map((P) => [P.placement, P.overflows.filter((F) => F > 0).reduce((F, re) => F + re, 0)]).sort((P, F) => P[1] - F[1])[0]) == null ? void 0 : j[0];
-              M && (N = M);
+              z && (N = z);
               break;
             }
             case "initialPlacement":
@@ -4662,13 +4671,13 @@ const $l = function(t) {
           return u.find((y) => c > y.left - p.left && c < y.right + p.right && l > y.top - p.top && l < y.bottom + p.bottom) || f;
         if (u.length >= 2) {
           if (De(n) === "y") {
-            const $ = u[0], U = u[u.length - 1], I = Be(n) === "top", j = $.top, V = U.bottom, X = I ? $.left : U.left, N = I ? $.right : U.right, M = N - X, P = V - j;
+            const $ = u[0], U = u[u.length - 1], I = Be(n) === "top", j = $.top, V = U.bottom, X = I ? $.left : U.left, N = I ? $.right : U.right, z = N - X, P = V - j;
             return {
               top: j,
               bottom: V,
               left: X,
               right: N,
-              width: M,
+              width: z,
               height: P,
               x: X,
               y: j
@@ -5397,7 +5406,7 @@ function ld(t) {
   }), [x, v]), N = Z.useMemo(() => ({
     reference: b,
     floating: C
-  }), [b, C]), M = Z.useMemo(() => {
+  }), [b, C]), z = Z.useMemo(() => {
     const P = {
       position: n,
       left: 0,
@@ -5423,8 +5432,8 @@ function ld(t) {
     update: j,
     refs: X,
     elements: N,
-    floatingStyles: M
-  }), [d, j, X, N, M]);
+    floatingStyles: z
+  }), [d, j, X, N, z]);
 }
 const dd = (t) => {
   function e(n) {
@@ -6166,8 +6175,8 @@ const li = {
     if (!j.current || y !== "present")
       return;
     const X = j.current, N = new ResizeObserver(() => {
-      const { scrollHeight: M, clientHeight: P, scrollWidth: F, clientWidth: re } = X;
-      D(M > P), U(F > re);
+      const { scrollHeight: z, clientHeight: P, scrollWidth: F, clientWidth: re } = X;
+      D(z > P), U(F > re);
     });
     return N.observe(X), () => N.disconnect();
   }, [j, y]), /* @__PURE__ */ ae(
@@ -6193,8 +6202,8 @@ const li = {
             onScroll: (X) => {
               var F;
               (F = f == null ? void 0 : f.onScroll) == null || F.call(f, X), m == null || m({ x: X.currentTarget.scrollLeft, y: X.currentTarget.scrollTop });
-              const { scrollTop: N, scrollHeight: M, clientHeight: P } = X.currentTarget;
-              N - (M - P) >= -0.6 && (x == null || x()), N === 0 && (v == null || v());
+              const { scrollTop: N, scrollHeight: z, clientHeight: P } = X.currentTarget;
+              N - (z - P) >= -0.6 && (x == null || x()), N === 0 && (v == null || v());
             },
             children: g
           }
@@ -7100,7 +7109,7 @@ function lt(t) {
     onChange: V,
     zIndex: X,
     radius: N,
-    shadow: M,
+    shadow: z,
     id: P,
     defaultOpened: F,
     __staticSelector: re,
@@ -7124,7 +7133,7 @@ function lt(t) {
     rootSelector: "dropdown",
     vars: qe,
     varsResolver: cu
-  }), { resolvedStyles: Ht } = Ir({ classNames: v, styles: b, props: e }), Ut = J(null), [an, cn] = G(null), [Yt, nt] = G(null), { dir: ft } = Mr(), Ie = En(P), de = iu({
+  }), { resolvedStyles: Ht } = Ir({ classNames: v, styles: b, props: e }), Ut = J(null), [an, cn] = G(null), [Yt, nt] = G(null), { dir: ft } = Mr(), Ie = En(P), ue = iu({
     middlewares: f,
     width: u,
     position: Hd(ft, r),
@@ -7144,21 +7153,21 @@ function lt(t) {
   });
   Ga(
     () => {
-      C && (de.onClose(), I == null || I());
+      C && (ue.onClose(), I == null || I());
     },
     D,
     [an, Yt]
   );
   const be = ee(
     (pe) => {
-      cn(pe), de.floating.refs.setReference(pe);
+      cn(pe), ue.floating.refs.setReference(pe);
     },
-    [de.floating.refs.setReference]
+    [ue.floating.refs.setReference]
   ), ln = ee(
     (pe) => {
-      nt(pe), de.floating.refs.setFloating(pe);
+      nt(pe), ue.floating.refs.setFloating(pe);
     },
-    [de.floating.refs.setFloating]
+    [ue.floating.refs.setFloating]
   ), dn = ee(() => {
     var pe;
     (pe = c == null ? void 0 : c.onExited) == null || pe.call(c), l == null || l();
@@ -7172,14 +7181,14 @@ function lt(t) {
       value: {
         returnFocus: ce,
         disabled: je,
-        controlled: de.controlled,
+        controlled: ue.controlled,
         reference: be,
         floating: ln,
-        x: de.floating.x,
-        y: de.floating.y,
-        arrowX: (un = (pt = (Xe = de.floating) == null ? void 0 : Xe.middlewareData) == null ? void 0 : pt.arrow) == null ? void 0 : un.x,
-        arrowY: (Fe = (ye = (fn = de.floating) == null ? void 0 : fn.middlewareData) == null ? void 0 : ye.arrow) == null ? void 0 : Fe.y,
-        opened: de.opened,
+        x: ue.floating.x,
+        y: ue.floating.y,
+        arrowX: (un = (pt = (Xe = ue.floating) == null ? void 0 : Xe.middlewareData) == null ? void 0 : pt.arrow) == null ? void 0 : un.x,
+        arrowY: (Fe = (ye = (fn = ue.floating) == null ? void 0 : fn.middlewareData) == null ? void 0 : ye.arrow) == null ? void 0 : Fe.y,
+        opened: ue.opened,
         arrowRef: Ut,
         transitionProps: { ...c, onExited: dn, onEntered: Ce },
         width: u,
@@ -7188,17 +7197,17 @@ function lt(t) {
         arrowOffset: g,
         arrowRadius: y,
         arrowPosition: w,
-        placement: de.floating.placement,
+        placement: ue.floating.placement,
         trapFocus: $,
         withinPortal: S,
         portalProps: T,
         zIndex: X,
         radius: N,
-        shadow: M,
+        shadow: z,
         closeOnEscape: k,
         onDismiss: I,
-        onClose: de.onClose,
-        onToggle: de.onToggle,
+        onClose: ue.onClose,
+        onToggle: ue.onToggle,
         getTargetId: () => `${Ie}-target`,
         getDropdownId: () => `${Ie}-dropdown`,
         withRoles: Te,
@@ -7219,7 +7228,7 @@ function lt(t) {
           Vn,
           {
             transition: "fade",
-            mounted: de.opened,
+            mounted: ue.opened,
             duration: (c == null ? void 0 : c.duration) || 250,
             exitDuration: (c == null ? void 0 : c.exitDuration) || 250,
             children: (pe) => /* @__PURE__ */ h(Kr, { withinPortal: S, children: /* @__PURE__ */ h(
@@ -7736,7 +7745,7 @@ const ku = {
     size: l,
     variant: d,
     __staticSelector: u
-  }, V = En(T), X = typeof S == "boolean" ? S : k, N = (v == null ? void 0 : v.id) || `${V}-error`, M = (x == null ? void 0 : x.id) || `${V}-description`, P = V, F = !!g && typeof g != "boolean", re = !!y, Te = `${F ? N : ""} ${re ? M : ""}`, je = Te.trim().length > 0 ? Te.trim() : void 0, ce = (w == null ? void 0 : w.id) || `${V}-label`, Ye = m && /* @__PURE__ */ h(
+  }, V = En(T), X = typeof S == "boolean" ? S : k, N = (v == null ? void 0 : v.id) || `${V}-error`, z = (x == null ? void 0 : x.id) || `${V}-description`, P = V, F = !!g && typeof g != "boolean", re = !!y, Te = `${F ? N : ""} ${re ? z : ""}`, je = Te.trim().length > 0 ? Te.trim() : void 0, ce = (w == null ? void 0 : w.id) || `${V}-label`, Ye = m && /* @__PURE__ */ h(
     Yn,
     {
       labelElement: b,
@@ -7754,7 +7763,7 @@ const ku = {
       ...x,
       ...j,
       size: (x == null ? void 0 : x.size) || j.size,
-      id: (x == null ? void 0 : x.id) || M,
+      id: (x == null ? void 0 : x.id) || z,
       children: y
     },
     "description"
@@ -7860,7 +7869,7 @@ const Ru = {
     withErrorStyles: V,
     mod: X,
     inputSize: N,
-    __clearSection: M,
+    __clearSection: z,
     __clearable: P,
     __defaultRightSection: F,
     ...re
@@ -7883,7 +7892,7 @@ const Ru = {
     "aria-invalid": !!p,
     "aria-describedby": ce == null ? void 0 : ce.describedBy,
     id: (ce == null ? void 0 : ce.inputId) || I
-  } : {}, Ne = x || P && M || F;
+  } : {}, Ne = x || P && z || F;
   return /* @__PURE__ */ h(gu, { value: { size: u || "sm" }, children: /* @__PURE__ */ ae(
     W,
     {
@@ -8579,7 +8588,7 @@ function Li({
     N == null || N.removeAttribute("data-combobox-selected"), N == null || N.removeAttribute("aria-selected");
   }, []), b = ee(
     (N) => {
-      const M = document.getElementById(l.current), P = M == null ? void 0 : M.querySelectorAll("[data-combobox-option]");
+      const z = document.getElementById(l.current), P = z == null ? void 0 : z.querySelectorAll("[data-combobox-option]");
       if (!P)
         return null;
       const F = N >= P.length ? 0 : N < 0 ? P.length - 1 : N;
@@ -8591,9 +8600,9 @@ function Li({
       `#${l.current} [data-combobox-active]`
     );
     if (N) {
-      const M = document.querySelectorAll(
+      const z = document.querySelectorAll(
         `#${l.current} [data-combobox-option]`
-      ), P = Array.from(M).findIndex((F) => F === N);
+      ), P = Array.from(z).findIndex((F) => F === N);
       return b(P);
     }
     return b(0);
@@ -8623,7 +8632,7 @@ function Li({
     ),
     [b]
   ), D = ee(
-    (N = "selected", M) => {
+    (N = "selected", z) => {
       g.current = window.setTimeout(() => {
         var re;
         const P = document.querySelectorAll(
@@ -8631,7 +8640,7 @@ function Li({
         ), F = Array.from(P).findIndex(
           (Te) => Te.hasAttribute(`data-combobox-${N}`)
         );
-        d.current = F, M != null && M.scrollIntoView && ((re = P[F]) == null || re.scrollIntoView({ block: "nearest", behavior: i }));
+        d.current = F, z != null && z.scrollIntoView && ((re = P[F]) == null || re.scrollIntoView({ block: "nearest", behavior: i }));
       }, 0);
     },
     []
@@ -8640,8 +8649,8 @@ function Li({
   }, [v]), U = ee(() => {
     const N = document.querySelectorAll(
       `#${l.current} [data-combobox-option]`
-    ), M = N == null ? void 0 : N[d.current];
-    M == null || M.click();
+    ), z = N == null ? void 0 : N[d.current];
+    z == null || z.click();
   }, []), I = ee((N) => {
     l.current = N;
   }, []), j = ee(() => {
@@ -9213,7 +9222,7 @@ const gf = {
     checkIconPosition: V,
     withCheckIcon: X,
     nothingFoundMessage: N,
-    name: M,
+    name: z,
     form: P,
     searchValue: F,
     defaultSearchValue: re,
@@ -9234,7 +9243,7 @@ const gf = {
     __clearable: cn,
     chevronColor: Yt,
     ...nt
-  } = n, ft = vn(() => Iu(g), [g]), Ie = vn(() => Pi(ft), [ft]), de = En(Re), [be, ln, dn] = kn({
+  } = n, ft = vn(() => Iu(g), [g]), Ie = vn(() => Pi(ft), [ft]), ue = En(Re), [be, ln, dn] = kn({
     value: y,
     defaultValue: w,
     finalValue: null,
@@ -9298,7 +9307,7 @@ const gf = {
           /* @__PURE__ */ h(Q.Target, { targetType: I ? "input" : "button", autoComplete: Ct, children: /* @__PURE__ */ h(
             qn,
             {
-              id: de,
+              id: ue,
               ref: e,
               __defaultRightSection: /* @__PURE__ */ h(
                 Q.Chevron,
@@ -9356,7 +9365,7 @@ const gf = {
               withCheckIcon: X,
               nothingFoundMessage: N,
               unstyled: s,
-              labelId: nt.label ? `${de}-label` : void 0,
+              labelId: nt.label ? `${ue}-label` : void 0,
               "aria-label": nt.label ? void 0 : nt["aria-label"],
               renderOption: Se,
               scrollAreaProps: Ht
@@ -9369,7 +9378,7 @@ const gf = {
       Q.HiddenInput,
       {
         value: be,
-        name: M,
+        name: z,
         form: P,
         disabled: S,
         ...dt
@@ -9854,23 +9863,27 @@ function Lf() {
     ] })
   ] });
 }
-Aa({
-  manifest: Wa,
-  routes: [
-    {
-      path: "/plugins/com.fpp.reports",
-      component: Lf,
-      label: "Reports",
-      permission: "reports:read"
-    }
-  ],
-  menuItems: [
-    {
-      label: "Reports",
-      path: "/plugins/com.fpp.reports",
-      icon: "file-analytics",
-      order: 40
-    }
-  ],
-  widgets: []
-});
+function jf() {
+  Aa({
+    manifest: Wa,
+    routes: [
+      {
+        path: "/plugins/com.fpp.reports",
+        component: Lf,
+        label: "Reports",
+        permission: "reports:read"
+      }
+    ],
+    menuItems: [
+      {
+        label: "Reports",
+        path: "/plugins/com.fpp.reports",
+        icon: "file-analytics",
+        order: 40
+      }
+    ]
+  });
+}
+export {
+  jf as activate
+};

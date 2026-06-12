@@ -91,6 +91,23 @@ export declare const pluginLifecycleSchema: z.ZodObject<{
     pluginId: string;
     version?: string | undefined;
 }>;
+export declare const localeChangedSchema: z.ZodObject<{
+    locale: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    locale: string;
+}, {
+    locale: string;
+}>;
+export declare const themePresetSchema: z.ZodObject<{
+    primaryColor: z.ZodString;
+    label: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    primaryColor: string;
+    label?: string | undefined;
+}, {
+    primaryColor: string;
+    label?: string | undefined;
+}>;
 export declare const EVENT_SCHEMAS: {
     readonly 'task.created': z.ZodObject<{
         taskId: z.ZodString;
@@ -194,6 +211,23 @@ export declare const EVENT_SCHEMAS: {
         pluginId: string;
         version?: string | undefined;
     }>;
+    readonly 'locale.changed': z.ZodObject<{
+        locale: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        locale: string;
+    }, {
+        locale: string;
+    }>;
+    readonly 'theme.preset': z.ZodObject<{
+        primaryColor: z.ZodString;
+        label: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        primaryColor: string;
+        label?: string | undefined;
+    }, {
+        primaryColor: string;
+        label?: string | undefined;
+    }>;
 };
 export type PlatformEventMap = {
     'task.created': z.infer<typeof taskCreatedSchema>;
@@ -205,6 +239,8 @@ export type PlatformEventMap = {
     'plugin.error': z.infer<typeof pluginErrorSchema>;
     'plugin.enabled': z.infer<typeof pluginLifecycleSchema>;
     'plugin.disabled': z.infer<typeof pluginLifecycleSchema>;
+    'locale.changed': z.infer<typeof localeChangedSchema>;
+    'theme.preset': z.infer<typeof themePresetSchema>;
 };
 export type PlatformEventName = keyof PlatformEventMap;
 //# sourceMappingURL=events.d.ts.map

@@ -18,10 +18,20 @@ export function setCurrentPluginId(pluginId) {
     currentPluginId = pluginId;
 }
 export function getCurrentPluginId() {
-    if (!currentPluginId) {
-        throw new Error('[PluginSDK] registerPlugin must be called during plugin load');
+    if (currentPluginId) {
+        return currentPluginId;
     }
-    return currentPluginId;
+    throw new Error('[PluginSDK] Plugin ID not available — use hooks (usePluginEvent, usePluginConfig) inside plugin UI, or call during registerPlugin()');
+}
+export function resolvePluginId(pluginId) {
+    if (pluginId)
+        return pluginId;
+    if (currentPluginId)
+        return currentPluginId;
+    throw new Error('[PluginSDK] Plugin ID is required');
+}
+export function getPluginContext(pluginId) {
+    return getHostBridge().getContext({ id: pluginId });
 }
 export function clearCurrentPluginId() {
     currentPluginId = null;

@@ -68,6 +68,25 @@ export class EventBus {
         }
         return total;
     }
+    getSubscriptionSummary() {
+        return Array.from(this.subscriptions.entries()).map(([event, subs]) => ({
+            event,
+            count: subs.length,
+            listeners: subs.map((s) => s.pluginId ?? 'host'),
+        }));
+    }
+    observe(listener) {
+        const id = `obs_${++this.subscriptionCounter}`;
+        const observer = { id, listener };
+        if (!this.observers) {
+            this.observers = [];
+        }
+        this.observers.push(observer);
+        return () => {
+            this.observers = this.observers?.filter((o) => o.id !== id);
+        };
+    }
+    observers = [];
     clear() {
         this.subscriptions.clear();
     }
@@ -126,6 +145,14 @@ export class EventBus {
             }
             catch (error) {
                 console.error(`[EventBus] Handler error for ${event}:`, error);
+            }
+        }
+        for (const observer of this.observers ?? []) {
+            try {
+                observer.listener(event, payload, meta);
+            }
+            catch (error) {
+                console.error(`[EventBus] Observer error for ${event}:`, error);
             }
         }
     }

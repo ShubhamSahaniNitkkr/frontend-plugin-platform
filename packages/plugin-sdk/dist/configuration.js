@@ -1,14 +1,10 @@
-import { getCurrentPluginId, getHostBridge } from './context.js';
-export function getConfiguration() {
-    const pluginId = getCurrentPluginId();
-    const bridge = getHostBridge();
-    const ctx = bridge.getContext({ id: pluginId });
-    return ctx.config.get();
+import { resolvePluginId, getPluginContext } from './context.js';
+export function getConfiguration(pluginId) {
+    const id = resolvePluginId(pluginId);
+    return getPluginContext(id).config.get();
 }
-export async function setConfiguration(partial) {
-    const pluginId = getCurrentPluginId();
-    const bridge = getHostBridge();
-    const ctx = bridge.getContext({ id: pluginId });
-    await ctx.config.set(partial);
+export async function setConfiguration(partial, pluginId) {
+    const id = resolvePluginId(pluginId);
+    await getPluginContext(id).config.set(partial);
 }
 //# sourceMappingURL=configuration.js.map
