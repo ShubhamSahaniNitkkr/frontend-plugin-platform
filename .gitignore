@@ -1,5 +1,7 @@
 node_modules
 dist/
 data/
-apps/
+*.db
+*.db-shm
+*.db-wal
 apps/host/dist/plugins/
