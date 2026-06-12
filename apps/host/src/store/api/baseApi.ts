@@ -10,9 +10,7 @@ import {
   recordApiCall,
   updateApiCall,
 } from '../slices/platformObservabilitySlice';
-
-const API_URL =
-  import.meta.env.PUBLIC_API_URL ?? 'http://localhost:3001/api/v1';
+import { API_URL } from '../../lib/apiUrl';
 
 const rawBaseQuery = fetchBaseQuery({
   baseUrl: API_URL,

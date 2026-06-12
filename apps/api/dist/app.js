@@ -9,7 +9,20 @@ import { tasksRouter } from './routes/tasks.routes.js';
 import { telemetryRouter } from './routes/telemetry.routes.js';
 export function createApp() {
     const app = express();
-    app.use(cors({ origin: true, credentials: true }));
+    app.use(cors({
+        origin(origin, callback) {
+            if (!origin ||
+                origin.startsWith('http://localhost:') ||
+                /\.onrender\.com$/.test(origin)) {
+                callback(null, true);
+                return;
+            }
+            callback(null, true);
+        },
+        credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
+    }));
     app.use(express.json());
     app.get('/api/v1/health', (_req, res) => {
         res.json({ status: 'ok', version: '1.0.0' });

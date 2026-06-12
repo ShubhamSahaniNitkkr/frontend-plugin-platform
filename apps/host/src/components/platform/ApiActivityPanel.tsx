@@ -14,8 +14,7 @@ import { clearApiCalls } from '../../store/slices/platformObservabilitySlice';
 import { GlassCard } from './GlassCard';
 import { LiveIndicator } from './LiveIndicator';
 
-const API_URL =
-  import.meta.env.PUBLIC_API_URL ?? 'http://localhost:3001/api/v1';
+import { API_URL } from '../../lib/apiUrl';
 
 export function ApiActivityPanel() {
   const dispatch = useDispatch();

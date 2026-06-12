@@ -9764,7 +9764,7 @@ const $f = [["path", { d: "M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2", key: "sv
  * This source code is licensed under the MIT license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const If = [["path", { d: "M14 3v4a1 1 0 0 0 1 1h4", key: "svg-0" }], ["path", { d: "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2", key: "svg-1" }], ["path", { d: "M9 17l0 -5", key: "svg-2" }], ["path", { d: "M12 17l0 -1", key: "svg-3" }], ["path", { d: "M15 17l0 -3", key: "svg-4" }]], Df = Yi("outline", "file-analytics", "FileAnalytics", If), ir = "http://localhost:3001/api/v1";
+const If = [["path", { d: "M14 3v4a1 1 0 0 0 1 1h4", key: "svg-0" }], ["path", { d: "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2", key: "svg-1" }], ["path", { d: "M9 17l0 -5", key: "svg-2" }], ["path", { d: "M12 17l0 -1", key: "svg-3" }], ["path", { d: "M15 17l0 -3", key: "svg-4" }]], Df = Yi("outline", "file-analytics", "FileAnalytics", If), ir = "/api/v1";
 function ar() {
   return typeof localStorage < "u" ? localStorage.getItem("fpp_token") : null;
 }

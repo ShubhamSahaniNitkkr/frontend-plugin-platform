@@ -15,10 +15,7 @@ import { useEmitEvent, usePluginPermissions, usePluginNotify } from '@fpp/plugin
 import type { Task } from '@fpp/shared';
 import { taskReducer, initialTaskState, type TaskState } from '../state/taskReducer';
 
-const API_URL =
-  (typeof import.meta !== 'undefined' &&
-    (import.meta as { env?: { PUBLIC_API_URL?: string } }).env?.PUBLIC_API_URL) ||
-  'http://localhost:3001/api/v1';
+const API_URL = import.meta.env.PUBLIC_API_URL ?? '/api/v1';
 
 function getToken(): string | null {
   if (typeof localStorage === 'undefined') return null;

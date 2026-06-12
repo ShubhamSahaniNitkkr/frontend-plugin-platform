@@ -6,8 +6,7 @@ import { usePlatform } from '../../platform/di/PlatformContext';
 import { componentRegistry } from '../../platform/component-registry/ComponentRegistry';
 import { GlassCard } from './GlassCard';
 
-const API_URL =
-  import.meta.env.PUBLIC_API_URL ?? 'http://localhost:3001/api/v1';
+import { API_URL } from '../../lib/apiUrl';
 
 const LAYERS = [
   { name: 'Astro Shell', desc: 'Static HTML + React islands', color: 'orange' },

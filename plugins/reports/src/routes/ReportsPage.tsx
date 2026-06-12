@@ -12,8 +12,7 @@ import {
 import { IconDownload, IconFileAnalytics } from '@tabler/icons-react';
 import { useEmitEvent, usePluginPermissions } from '@fpp/plugin-sdk';
 
-const API_URL =
-  import.meta.env.PUBLIC_API_URL ?? 'http://localhost:3001/api/v1';
+const API_URL = import.meta.env.PUBLIC_API_URL ?? '/api/v1';
 
 function getToken() {
   return typeof localStorage !== 'undefined'

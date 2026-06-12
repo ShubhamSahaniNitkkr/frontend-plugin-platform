@@ -24,4 +24,8 @@ services:
       - key: NODE_VERSION
         value: "20"
       - key: PUBLIC_API_URL
-        value: https://fpp-api.onrender.com/api/v1
+        value: /api/v1
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: https://fpp-api.onrender.com/api/*
