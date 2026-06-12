@@ -1,0 +1,27 @@
+# Render Blueprint — deploy both services on the free tier
+# Dashboard → New → Blueprint → connect this repo
+
+services:
+  - type: web
+    name: fpp-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build -w @fpp/shared && npm run build -w @fpp/api
+    startCommand: npm run start -w @fpp/api
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: JWT_SECRET
+        generateValue: true
+
+  - type: web
+    name: fpp-host
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: apps/host/dist
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: PUBLIC_API_URL
+        value: https://fpp-api.onrender.com/api/v1
