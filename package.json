@@ -8,6 +8,7 @@
     "plugins/*"
   ],
   "scripts": {
+    "postinstall": "npm rebuild better-sqlite3",
     "dev": "npm run build:plugins && concurrently \"npm run dev -w @fpp/api\" \"npm run dev -w @fpp/host\"",
     "dev:api": "npm run dev -w @fpp/api",
     "dev:host": "npm run dev -w @fpp/host",
