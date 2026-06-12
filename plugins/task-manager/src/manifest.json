@@ -1,0 +1,12 @@
+{
+  "id": "com.fpp.task-manager",
+  "name": "Task Manager",
+  "version": "1.0.0",
+  "description": "Create, update, and manage tasks with a full dashboard.",
+  "author": "FPP Team",
+  "entry": "/plugins/com.fpp.task-manager/index.js",
+  "hostCompatibility": "^1.0.0",
+  "permissions": ["tasks:read", "tasks:write", "tasks:delete", "events:task.*"],
+  "icon": "checklist",
+  "category": "Productivity"
+}

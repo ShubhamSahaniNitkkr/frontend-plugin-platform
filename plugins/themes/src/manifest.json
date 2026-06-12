@@ -1,0 +1,12 @@
+{
+  "id": "com.fpp.themes",
+  "name": "Theme Studio",
+  "version": "1.0.0",
+  "description": "Solid color themes that transform the entire app look and feel.",
+  "author": "FPP Team",
+  "entry": "/plugins/com.fpp.themes/index.js",
+  "hostCompatibility": "^1.0.0",
+  "permissions": ["storage:local", "events:theme.*"],
+  "icon": "palette",
+  "category": "Appearance"
+}

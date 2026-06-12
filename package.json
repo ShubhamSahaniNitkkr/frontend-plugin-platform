@@ -1,0 +1,28 @@
+{
+  "name": "frontend-plugin-platform",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "plugins/*"
+  ],
+  "scripts": {
+    "dev": "npm run build:plugins && concurrently \"npm run dev -w @fpp/api\" \"npm run dev -w @fpp/host\"",
+    "dev:api": "npm run dev -w @fpp/api",
+    "dev:host": "npm run dev -w @fpp/host",
+    "build": "npm run build -w @fpp/shared && npm run build -w @fpp/event-bus && npm run build -w @fpp/plugin-sdk && npm run build:plugins && npm run build -w @fpp/api && npm run build -w @fpp/host",
+    "build:plugins": "npm run build -w @fpp/plugin-i18n && npm run build -w @fpp/plugin-themes && npm run build -w @fpp/plugin-calculator && npm run build -w @fpp/plugin-task-manager && npm run build -w @fpp/plugin-notifications && npm run build -w @fpp/plugin-reports",
+    "test": "npm run test --workspaces --if-present",
+    "test:e2e": "npm run test:e2e -w @fpp/host",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

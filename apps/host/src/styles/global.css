@@ -1,0 +1,351 @@
+:root {
+  --fpp-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 38%, #0891b2 100%);
+  --fpp-gradient-soft: linear-gradient(145deg, rgba(79, 70, 229, 0.08) 0%, rgba(8, 145, 178, 0.06) 100%);
+  --fpp-surface: light-dark(rgba(255, 255, 255, 0.82), rgba(16, 16, 20, 0.9));
+  --fpp-surface-elevated: light-dark(rgba(255, 255, 255, 0.95), rgba(24, 24, 30, 0.95));
+  --fpp-border: light-dark(rgba(99, 102, 241, 0.14), rgba(129, 140, 248, 0.22));
+  --fpp-shadow: 0 4px 24px -4px rgba(79, 70, 229, 0.12);
+  --fpp-shadow-lg: 0 24px 60px -16px rgba(79, 70, 229, 0.28);
+}
+
+body {
+  background: light-dark(
+    linear-gradient(168deg, #fafbff 0%, #eef2ff 40%, #f0fdfa 100%),
+    linear-gradient(168deg, #08070f 0%, #1a1744 50%, #042f2e 100%)
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fpp-gradient-border {
+  background: var(--fpp-surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--fpp-border) !important;
+  box-shadow: var(--fpp-shadow);
+}
+
+.fpp-hero {
+  background: var(--fpp-gradient);
+  color: white;
+  border-radius: var(--mantine-radius-xl);
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--fpp-shadow-lg);
+}
+
+.fpp-hero-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255, 255, 255, 0.18), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(6, 182, 212, 0.25), transparent 50%);
+  pointer-events: none;
+}
+
+.fpp-hero-title {
+  font-size: clamp(1.5rem, 4vw, 2rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em;
+}
+
+.fpp-page-title {
+  letter-spacing: -0.02em;
+  font-weight: 800 !important;
+}
+
+.fpp-comparison-card,
+.fpp-glass-panel,
+.fpp-stat-card,
+.fpp-page-header,
+.fpp-system-strip,
+.fpp-store-card {
+  transition: transform 0.22s ease, box-shadow 0.28s ease, border-color 0.2s ease;
+  background: var(--fpp-surface) !important;
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--fpp-border) !important;
+  box-shadow: var(--fpp-shadow);
+}
+
+.fpp-store-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--fpp-shadow-lg);
+  border-color: light-dark(rgba(99, 102, 241, 0.28), rgba(129, 140, 248, 0.35)) !important;
+}
+
+.fpp-comparison-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--fpp-shadow-lg);
+}
+
+.fpp-stat-card {
+  overflow: hidden;
+  position: relative;
+}
+
+.fpp-stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: var(--fpp-gradient-soft);
+  border-radius: 0 0 0 100%;
+  pointer-events: none;
+}
+
+.fpp-stat-label {
+  letter-spacing: 0.08em;
+}
+
+.fpp-stat-value {
+  font-size: clamp(1.5rem, 3vw, 1.85rem);
+  letter-spacing: -0.02em;
+}
+
+.fpp-panel-title {
+  letter-spacing: -0.01em;
+}
+
+.fpp-system-strip {
+  background: var(--fpp-gradient-soft) !important;
+}
+
+.fpp-nav-section {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mantine-color-dimmed);
+  padding: 0.5rem 0.75rem 0.25rem;
+}
+
+.mantine-AppShell-navbar {
+  background: var(--fpp-surface) !important;
+  backdrop-filter: blur(20px);
+  border-right: 1px solid var(--fpp-border) !important;
+}
+
+.mantine-AppShell-header {
+  background: var(--fpp-surface-elevated) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--fpp-border) !important;
+}
+
+.mantine-AppShell-main {
+  background: transparent !important;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.fpp-login-card {
+  background: var(--fpp-surface-elevated) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--fpp-border) !important;
+  box-shadow: var(--fpp-shadow-lg);
+}
+
+.fpp-live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mantine-color-green-6);
+  animation: fpp-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes fpp-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.fpp-live-badge .mantine-Badge-section {
+  margin-right: 2px;
+}
+
+.fpp-code-inline {
+  font-size: 0.72rem !important;
+  padding: 2px 6px !important;
+  background: light-dark(rgba(99, 102, 241, 0.08), rgba(129, 140, 248, 0.12)) !important;
+}
+
+.fpp-code-block-sm {
+  font-size: 0.68rem !important;
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fpp-console-row {
+  transition: background 0.15s ease;
+}
+
+.fpp-console-row:hover {
+  background: light-dark(rgba(99, 102, 241, 0.04), rgba(129, 140, 248, 0.06));
+}
+
+.fpp-console-table {
+  font-size: 0.85rem;
+}
+
+.fpp-console-scroll {
+  border-radius: var(--mantine-radius-md);
+  border: 1px solid var(--fpp-border);
+  background: light-dark(rgba(248, 250, 252, 0.6), rgba(12, 12, 16, 0.5));
+}
+
+.fpp-arch-layer {
+  border-radius: var(--mantine-radius-md);
+  background: light-dark(rgba(99, 102, 241, 0.04), rgba(129, 140, 248, 0.06));
+  border: 1px solid var(--fpp-border);
+}
+
+.fpp-tabs-list {
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.fpp-console-tabs .mantine-Tabs-tab {
+  font-weight: 600;
+}
+
+/* Marketplace animated background */
+.fpp-marketplace-page {
+  position: relative;
+  min-height: 100%;
+}
+
+.fpp-marketplace-bg {
+  position: absolute;
+  inset: -2rem -1rem;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fpp-marketplace-content {
+  position: relative;
+  z-index: 1;
+}
+
+.fpp-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: light-dark(0.45, 0.35);
+  will-change: transform;
+}
+
+.fpp-orb-1 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.7), transparent 70%);
+  top: -8%;
+  left: -6%;
+  animation: fpp-float-1 22s ease-in-out infinite;
+}
+
+.fpp-orb-2 {
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.65), transparent 70%);
+  top: 35%;
+  right: -8%;
+  animation: fpp-float-2 26s ease-in-out infinite;
+}
+
+.fpp-orb-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.55), transparent 70%);
+  bottom: 5%;
+  left: 20%;
+  animation: fpp-float-3 20s ease-in-out infinite;
+}
+
+.fpp-orb-4 {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.4), transparent 70%);
+  bottom: 25%;
+  right: 25%;
+  animation: fpp-float-4 24s ease-in-out infinite;
+}
+
+@keyframes fpp-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(6vw, 8vh) scale(1.08); }
+  66% { transform: translate(3vw, 4vh) scale(0.95); }
+}
+
+@keyframes fpp-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-8vw, 6vh) scale(1.1); }
+}
+
+@keyframes fpp-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(10vw, -5vh) scale(1.06); }
+  80% { transform: translate(-4vw, -8vh) scale(0.92); }
+}
+
+@keyframes fpp-float-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-6vw, 4vh) scale(1.05); }
+  75% { transform: translate(5vw, -6vh) scale(0.98); }
+}
+
+.fpp-explainer {
+  background: var(--fpp-surface-elevated) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--fpp-border) !important;
+}
+
+.fpp-explainer-step {
+  padding: var(--mantine-spacing-sm);
+  border-radius: var(--mantine-radius-md);
+  background: light-dark(rgba(99, 102, 241, 0.04), rgba(129, 140, 248, 0.06));
+  border: 1px solid var(--fpp-border);
+}
+
+.fpp-explainer-footer {
+  padding-top: var(--mantine-spacing-sm);
+  border-top: 1px solid var(--fpp-border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fpp-orb {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 48em) {
+  .fpp-hero .mantine-Badge-root {
+    font-size: 0.62rem;
+  }
+
+  .fpp-comparison-card,
+  .fpp-stat-card {
+    padding: var(--mantine-spacing-md) !important;
+  }
+
+  .fpp-console-table {
+    font-size: 0.75rem;
+  }
+
+  .fpp-code-block-sm {
+    max-width: 140px;
+  }
+
+  .mantine-Notifications-root {
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+  }
+}

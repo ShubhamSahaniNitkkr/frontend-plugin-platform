@@ -1,0 +1,12 @@
+{
+  "id": "com.fpp.reports",
+  "name": "Reports",
+  "version": "1.0.0",
+  "description": "Generate and export reports from platform data.",
+  "author": "FPP Team",
+  "entry": "/plugins/com.fpp.reports/index.js",
+  "hostCompatibility": "^1.0.0",
+  "permissions": ["reports:read", "reports:generate", "reports:export", "tasks:read", "events:report.*"],
+  "icon": "file-analytics",
+  "category": "Analytics"
+}

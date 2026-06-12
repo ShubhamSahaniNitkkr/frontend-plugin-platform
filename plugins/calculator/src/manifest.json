@@ -1,0 +1,12 @@
+{
+  "id": "com.fpp.calculator",
+  "name": "Calculator",
+  "version": "1.0.0",
+  "description": "A clean calculator widget and full-page tool.",
+  "author": "FPP Team",
+  "entry": "/plugins/com.fpp.calculator/index.js",
+  "hostCompatibility": "^1.0.0",
+  "permissions": ["storage:local"],
+  "icon": "calculator",
+  "category": "Utilities"
+}

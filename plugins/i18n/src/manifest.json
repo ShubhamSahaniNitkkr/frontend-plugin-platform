@@ -1,0 +1,12 @@
+{
+  "id": "com.fpp.i18n",
+  "name": "Language Pack",
+  "version": "1.0.0",
+  "description": "Translate the entire app UI into multiple languages instantly.",
+  "author": "FPP Team",
+  "entry": "/plugins/com.fpp.i18n/index.js",
+  "hostCompatibility": "^1.0.0",
+  "permissions": ["storage:local", "events:locale.*"],
+  "icon": "language",
+  "category": "Localization"
+}

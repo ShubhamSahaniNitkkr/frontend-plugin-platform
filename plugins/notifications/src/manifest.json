@@ -1,0 +1,12 @@
+{
+  "id": "com.fpp.notifications",
+  "name": "Notifications",
+  "version": "1.0.0",
+  "description": "Toast notifications, event alerts, and activity feed.",
+  "author": "FPP Team",
+  "entry": "/plugins/com.fpp.notifications/index.js",
+  "hostCompatibility": "^1.0.0",
+  "permissions": ["notifications:read", "notifications:write", "events:task.*", "events:report.*", "events:user.*"],
+  "icon": "bell",
+  "category": "Communication"
+}
